@@ -1,0 +1,49 @@
+<!-- user_profile.html -->
+{% extends "base2.html" %} {% block content %}
+
+<style>
+  .background-card {
+    {% comment %} background-color: black; {% endcomment %}
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    background-image: url('/media/images/bg.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+
+
+  }
+
+  .a{
+
+  }
+
+  .centered{
+    text-align: center;
+  }
+</style>
+
+<div class="background-card">
+  <h2 style="text-align: center">MEMBER BANUA GYM</h2>
+  <a>
+    <p>
+      <img
+        src="{{ user_profile.foto.url }}"
+        alt="Image"
+        width="50px"
+        height="50px"
+      />
+    </p>
+  </a>
+  <p class="centered">Nama: {{ user_profile }}</p>
+  <p class="centered">Alamat: {{ user_profile.alamat }}</p>
+  <p class="centered">NoHp: {{ user_profile.nohp }}</p>
+  <p class="centered">Join Member: {{ user_profile.join_member }}</p>
+  <p class="centered">Habis Member: {{ user_profile.habis_member }}</p>
+</div>
+
+<!-- Display other profile fields as needed -->
+
+{% endblock %}

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <style>
+    body {
+      {% comment %} background-color: black; {% endcomment %}
+      background: url('/media/images/bb.png') ;
+      background-size: cover;
+    }
+    
+    .container {
+      width: 1200px !important;
+      padding: 0 !important;
+      margin-right: auto;
+      margin-left: auto;
+      
+    }
+    @media screen and (min-width: 992px) and (max-width: 1439px) {
+      .container {
+        max-width: 1279px !important;
+        padding: 0 !important;
+        margin: 0 80px !important;
+        width: auto !important;
+      }
+    }
+    @media screen and (max-width: 991px) {
+      .container {
+        max-width: 959px !important;
+        margin: 0 16px !important;
+        padding: 0 !important;
+        width: auto !important;
+      }
+    }
+    
+    .gradient-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+      padding: 30px;
+      
+    }
+    @media screen and (max-width: 991px) {
+      .gradient-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .container-title {
+      text-align: center;
+      padding: 0 !important;
+      margin-bottom: 40px;
+      font-size: 40px;
+      color: #000   ;
+      font-weight: 600;
+      line-height: 60px;
+      font-family: 'Poppins';
+      
+    }
+    
+    .card {
+      max-width: 550px;
+      border: 0;
+      width: 100%;
+      margin-inline: auto;
+      padding: 20;
+      grid-row: 1/3;
+      grid-column: 1/3;
+      margin: 0 auto;
+      display: grid;
+      
+    }
+    .card-image{
+      max-width: 100%; /* Ensure the image doesn't exceed the card width */
+      height: auto; /* Maintain the aspect ratio */
+    }
+    .container-card {
+      position: relative;
+      border: 0px solid transparent;
+      {% comment %} background: linear-gradient(71deg, #080509, #1a171c, #080509); {% endcomment %}
+      {% comment %} background-color:white; {% endcomment %}
+      {% comment %} opacity: 70%; {% endcomment %}
+      border-radius: 45px;
+      padding: 15px;
+      background: url('/media/images/card-bg.jpg') center/cover ;
+      top: 33%;
+    }
+    .container-card img {
+    
+      
+    }
+    
+    
+    .bg-green-box,
+    .bg-white-box,
+    .bg-yellow-box,
+    .bg-blue-box {
+      position: relative;
+    }
+    
+    .bg-green-box::after,
+    .bg-white-box::after,
+    .bg-yellow-box::after,
+    .bg-blue-box::after {
+      position: absolute;
+      top: -1px;
+      bottom: -1px;
+      left: -1px;
+      right: -1px;
+      content: "";
+      z-index: -1;
+      border-radius: 45px;
+    }
+    
+    .bg-green-box::after {
+      background: linear-gradient(71deg, #0d1212, #3da077, #0d1212);
+    }
+    
+    .bg-white-box::after {
+      background: linear-gradient(71deg, #121013, #b0afb0, #121013);
+    }
+    
+    .bg-yellow-box::after {
+      background: linear-gradient(71deg, #110e0e, #afa220, #110e0e);
+    }
+    
+    .bg-blue-box::after {
+      background: linear-gradient(71deg, #0c0a0e, #5f6fad, #0c0a0e);
+    }
+    
+    .card-title {
+      font-weight: 600;
+      color: black;
+      letter-spacing: -0.02em;
+      line-height: 10px;
+      {% comment %} font-style: normal; {% endcomment %}
+      font-family: 'Poppins';
+      font-size: 28px;
+     
+      position: relative;
+    }
+    
+    .card-description {
+      font-weight: 600;
+      line-height: 10px;
+      {% comment %} color: rgba(255, 255, 255, 0.5); {% endcomment %}
+      color: black;
+      font-size: 16px;
+      max-width: 470px;
+      position: relative;
+      font-family: 'Poppins';
+      
+    }
+
+    .card-member{
+      text-align: center;
+      position: absolute;
+            top: 0;
+            left: 52%;
+            transform: translateX(-50%);
+            /* Additional styling for the card content */
+            color: #333;
+            font-size: 30px;
+            font-weight: bold;
+            font-family: 'Poppins';
+    }
+    .tab1{
+      display: inline-block;
+      margin-left: 76px;
+    }
+    .tab2{
+      display: inline-block;
+      margin-left: 67px;
+    }
+    .tab3{
+      display: inline-block;
+      margin-left: 78px;
+    }
+    .tab4{
+      display: inline-block;
+      margin-left: 22px;
+    }
+    .tab5{
+      display: inline-block;
+      margin-left: 10px;
+    }
+    .position-image{
+      position: absolute;
+      top: 20px; /* Adjust as needed */
+      left: 260px; /* Adjust as needed */
+      width: 310px;
+      height: 310px;
+      opacity: 75%;
+    }
+  </style>
+<head>
+  <meta charset="UTF-8">
+  <title>Member Card</title>
+  <link rel="stylesheet" href="./style.css">
+  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="container">
+  {% comment %} <p class="container-title">Member Card<br>Banua Gym</p> {% endcomment %}
+
+  <div class="gradient-cards">
+    <div class="card">
+      <div class="container-card bg-green-box">
+        <img src="/media/images/a.png" width="170" height="170" viewBox="0 0 120 120" position="relative" >
+        <img class="position-image" src="{{ user_profile.foto.url }}"  viewBox="0 0 120 120" >
+        <p class="card-member">MEMBER CARD</p>
+        <p class="card-description">Nama<span class="tab1">:</span> {{ user_profile }}</p>
+        <p class="card-description">Alamat<span class="tab2">:</span> {{ user_profile.alamat }} </p>
+        <p class="card-description">No Hp<span class="tab3">:</span> {{ user_profile.nohp }}</p>
+        <p class="card-description">Join Member<span class="tab4">:</span> {{ user_profile.join_member }}</p>
+        <p class="card-description">Habis Member<span class="tab5">:</span> {{ user_profile.habis_member }}</p>
+      </div>
+      </div>
+    </div>
+
+    
+
+<!-- partial -->
+  
+</body>
+</html>
